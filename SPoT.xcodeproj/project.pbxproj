@@ -21,9 +21,8 @@
 		F98C52221785DA2E002E0EC3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52211785DA2E002E0EC3 /* ImageViewController.m */; };
 		F98C52251785E0B6002E0EC3 /* HawaiiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52241785E0B6002E0EC3 /* HawaiiImageViewController.m */; };
 		F98C52281785ED77002E0EC3 /* FlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52271785ED77002E0EC3 /* FlickrPhotosTVC.m */; };
-		F98C522B1785EE43002E0EC3 /* FlickrTagsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C522A1785EE43002E0EC3 /* FlickrTagsTVC.m */; };
+		F98C522B1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C522A1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m */; };
 		F98C522E1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C522D1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m */; };
-		F98C52311785EEF0002E0EC3 /* FlickrTagPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52301785EEF0002E0EC3 /* FlickrTagPhotosTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,12 +49,10 @@
 		F98C52241785E0B6002E0EC3 /* HawaiiImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HawaiiImageViewController.m; sourceTree = "<group>"; };
 		F98C52261785ED77002E0EC3 /* FlickrPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotosTVC.h; sourceTree = "<group>"; };
 		F98C52271785ED77002E0EC3 /* FlickrPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotosTVC.m; sourceTree = "<group>"; };
-		F98C52291785EE43002E0EC3 /* FlickrTagsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrTagsTVC.h; sourceTree = "<group>"; };
-		F98C522A1785EE43002E0EC3 /* FlickrTagsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrTagsTVC.m; sourceTree = "<group>"; };
+		F98C52291785EE43002E0EC3 /* FlickrPhotosTagsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotosTagsTVC.h; sourceTree = "<group>"; };
+		F98C522A1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotosTagsTVC.m; sourceTree = "<group>"; };
 		F98C522C1785EE96002E0EC3 /* RecentFlickrPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFlickrPhotosTVC.h; sourceTree = "<group>"; };
 		F98C522D1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentFlickrPhotosTVC.m; sourceTree = "<group>"; };
-		F98C522F1785EEF0002E0EC3 /* FlickrTagPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrTagPhotosTVC.h; sourceTree = "<group>"; };
-		F98C52301785EEF0002E0EC3 /* FlickrTagPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrTagPhotosTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +102,8 @@
 				F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */,
 				F98C52261785ED77002E0EC3 /* FlickrPhotosTVC.h */,
 				F98C52271785ED77002E0EC3 /* FlickrPhotosTVC.m */,
-				F98C52291785EE43002E0EC3 /* FlickrTagsTVC.h */,
-				F98C522A1785EE43002E0EC3 /* FlickrTagsTVC.m */,
-				F98C522F1785EEF0002E0EC3 /* FlickrTagPhotosTVC.h */,
-				F98C52301785EEF0002E0EC3 /* FlickrTagPhotosTVC.m */,
+				F98C52291785EE43002E0EC3 /* FlickrPhotosTagsTVC.h */,
+				F98C522A1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m */,
 				F98C522C1785EE96002E0EC3 /* RecentFlickrPhotosTVC.h */,
 				F98C522D1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m */,
 				F98C52201785DA2E002E0EC3 /* ImageViewController.h */,
@@ -219,9 +214,8 @@
 				F98C52221785DA2E002E0EC3 /* ImageViewController.m in Sources */,
 				F98C52251785E0B6002E0EC3 /* HawaiiImageViewController.m in Sources */,
 				F98C52281785ED77002E0EC3 /* FlickrPhotosTVC.m in Sources */,
-				F98C522B1785EE43002E0EC3 /* FlickrTagsTVC.m in Sources */,
+				F98C522B1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m in Sources */,
 				F98C522E1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m in Sources */,
-				F98C52311785EEF0002E0EC3 /* FlickrTagPhotosTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,6 @@
 
 #import "FlickrPhotosTVC.h"
 
-@interface FlickrTagsTVC : FlickrPhotosTVC
+@interface FlickrPhotosTagsTVC : UITableViewController
 
 @end
