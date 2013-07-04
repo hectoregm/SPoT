@@ -17,7 +17,6 @@
 		F925D7311785D78900E1C4DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D7301785D78900E1C4DB /* Default@2x.png */; };
 		F925D7331785D78900E1C4DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D7321785D78900E1C4DB /* Default-568h@2x.png */; };
 		F925D7361785D78900E1C4DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */; };
-		F925D7391785D78900E1C4DB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F925D7381785D78900E1C4DB /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +34,6 @@
 		F925D7301785D78900E1C4DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F925D7321785D78900E1C4DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F925D7351785D78900E1C4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		F925D7371785D78900E1C4DB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F925D7381785D78900E1C4DB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +80,7 @@
 		F925D7221785D78900E1C4DB /* SPoT */ = {
 			isa = PBXGroup;
 			children = (
-				F925D72B1785D78900E1C4DB /* AppDelegate.h */,
-				F925D72C1785D78900E1C4DB /* AppDelegate.m */,
 				F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */,
-				F925D7371785D78900E1C4DB /* ViewController.h */,
-				F925D7381785D78900E1C4DB /* ViewController.m */,
 				F925D7231785D78900E1C4DB /* Supporting Files */,
 			);
 			path = SPoT;
@@ -96,6 +89,8 @@
 		F925D7231785D78900E1C4DB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F925D72B1785D78900E1C4DB /* AppDelegate.h */,
+				F925D72C1785D78900E1C4DB /* AppDelegate.m */,
 				F925D7241785D78900E1C4DB /* SPoT-Info.plist */,
 				F925D7251785D78900E1C4DB /* InfoPlist.strings */,
 				F925D7281785D78900E1C4DB /* main.m */,
@@ -175,7 +170,6 @@
 			files = (
 				F925D7291785D78900E1C4DB /* main.m in Sources */,
 				F925D72D1785D78900E1C4DB /* AppDelegate.m in Sources */,
-				F925D7391785D78900E1C4DB /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
