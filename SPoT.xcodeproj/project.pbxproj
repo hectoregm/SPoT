@@ -19,6 +19,7 @@
 		F925D7361785D78900E1C4DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */; };
 		F98C521E1785D989002E0EC3 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C521D1785D989002E0EC3 /* FlickrFetcher.m */; };
 		F98C52221785DA2E002E0EC3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52211785DA2E002E0EC3 /* ImageViewController.m */; };
+		F98C52251785E0B6002E0EC3 /* HawaiiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52241785E0B6002E0EC3 /* HawaiiImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		F98C521D1785D989002E0EC3 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		F98C52201785DA2E002E0EC3 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		F98C52211785DA2E002E0EC3 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		F98C52231785E0B6002E0EC3 /* HawaiiImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HawaiiImageViewController.h; sourceTree = "<group>"; };
+		F98C52241785E0B6002E0EC3 /* HawaiiImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HawaiiImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 			children = (
 				F98C52201785DA2E002E0EC3 /* ImageViewController.h */,
 				F98C52211785DA2E002E0EC3 /* ImageViewController.m */,
+				F98C52231785E0B6002E0EC3 /* HawaiiImageViewController.h */,
+				F98C52241785E0B6002E0EC3 /* HawaiiImageViewController.m */,
 				F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */,
 				F98C521F1785D994002E0EC3 /* FlickrFetcher */,
 				F925D7231785D78900E1C4DB /* Supporting Files */,
@@ -192,6 +197,7 @@
 				F925D72D1785D78900E1C4DB /* AppDelegate.m in Sources */,
 				F98C521E1785D989002E0EC3 /* FlickrFetcher.m in Sources */,
 				F98C52221785DA2E002E0EC3 /* ImageViewController.m in Sources */,
+				F98C52251785E0B6002E0EC3 /* HawaiiImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
