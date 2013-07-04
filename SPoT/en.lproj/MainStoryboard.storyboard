@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-124" y="73"/>
         </scene>
-        <!--Flickr Photos TagsTVC-->
+        <!--Flickr Photos TagsTVC - SPoT-->
         <scene sceneID="pjH-Xb-KV1">
             <objects>
                 <tableViewController id="zUe-3I-oXJ" customClass="FlickrPhotosTagsTVC" sceneMemberID="viewController">
@@ -32,11 +32,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Tag" textLabel="JH3-uO-rPk" detailTextLabel="3If-cP-Nw3" style="IBUITableViewCellStyleSubtitle" id="UE4-yC-Bl2">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Tag" textLabel="JH3-uO-rPk" detailTextLabel="3If-cP-Nw3" style="IBUITableViewCellStyleSubtitle" id="UE4-yC-Bl2">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JH3-uO-rPk">
@@ -52,6 +52,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="mqe-W0-Ga1" kind="push" identifier="Show Photos" id="6Lj-Ik-B9b"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -59,11 +62,56 @@
                             <outlet property="delegate" destination="zUe-3I-oXJ" id="mqk-IN-VSX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CDI-25-sdM"/>
+                    <navigationItem key="navigationItem" title="SPoT" id="CDI-25-sdM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4OV-N6-kwt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939" y="-121"/>
+        </scene>
+        <!--Flickr PhotosTVC-->
+        <scene sceneID="uq4-mb-pHm">
+            <objects>
+                <tableViewController id="mqe-W0-Ga1" customClass="FlickrPhotosTVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P7W-go-r7h">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Flickr Photo" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Flickr Photo" textLabel="AQs-mo-qF5" detailTextLabel="nJk-Y5-TIZ" style="IBUITableViewCellStyleSubtitle" id="Pj2-tV-9uR">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQs-mo-qF5">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJk-Y5-TIZ">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="XeS-6k-7F0" kind="push" identifier="Show Image" id="nQd-u7-rxT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mqe-W0-Ga1" id="Lab-KG-TKD"/>
+                            <outlet property="delegate" destination="mqe-W0-Ga1" id="aMp-yU-KUX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="lxu-ol-hIg"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sq-RV-IP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1381" y="-121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="H3e-Bt-1WR">
@@ -84,7 +132,7 @@
             </objects>
             <point key="canvasLocation" x="413" y="-121"/>
         </scene>
-        <!--Recent Flickr PhotosTVC-->
+        <!--Recent Flickr PhotosTVC - Recents-->
         <scene sceneID="OdS-xJ-ndr">
             <objects>
                 <tableViewController id="Qvu-p5-ojO" customClass="RecentFlickrPhotosTVC" sceneMemberID="viewController">
@@ -123,7 +171,7 @@
                             <outlet property="delegate" destination="Qvu-p5-ojO" id="j79-eJ-Eh0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="wQp-Mt-JRB"/>
+                    <navigationItem key="navigationItem" title="Recents" id="wQp-Mt-JRB"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rk-Ls-0em" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,4 +249,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="nQd-u7-rxT"/>
+    </inferredMetricsTieBreakers>
 </document>

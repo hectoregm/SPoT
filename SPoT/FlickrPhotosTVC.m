@@ -21,11 +21,6 @@
     [self.tableView reloadData];
 }
 
-- (void)viewDidLoad
-{
-    self.photos = [FlickrFetcher stanfordPhotos];
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[UITableViewCell class]]) {

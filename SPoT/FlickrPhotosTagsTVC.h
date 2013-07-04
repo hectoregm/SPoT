@@ -9,5 +9,5 @@
 #import "FlickrPhotosTVC.h"
 
 @interface FlickrPhotosTagsTVC : UITableViewController
-
+@property (nonatomic, strong) NSArray *photos;
 @end
