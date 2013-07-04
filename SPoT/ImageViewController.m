@@ -18,6 +18,7 @@
 - (void)setImageURL:(NSURL *)imageURL
 {
     _imageURL = imageURL;
+    NSLog(@"URL: %@", imageURL);
     [self resetImage];
 }
 
@@ -26,8 +27,9 @@
     if (self.scrollView) {
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
-        
+        NSLog(@"Starting download of image data");
         NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
+        NSLog(@"Finished download of image data");  
         UIImage *image = [[UIImage alloc] initWithData:imageData];
         if (image) {
             NSLog(@"In image reset");
@@ -58,6 +60,7 @@
     self.scrollView.minimumZoomScale = 0.2;
     self.scrollView.maximumZoomScale = 5.0;
     self.scrollView.delegate = self;
+    NSLog(@"In ImageVC viewDidLoad");
     [self resetImage];
 }
 

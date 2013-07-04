@@ -14,10 +14,22 @@
 
 @implementation FlickrPhotosTagsTVC
 
-- (void)viewDidLoad
+#pragma mark - Table view data source
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Return the number of rows in the section.
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
 }
 
 @end
