@@ -17,6 +17,7 @@
 		F925D7311785D78900E1C4DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D7301785D78900E1C4DB /* Default@2x.png */; };
 		F925D7331785D78900E1C4DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D7321785D78900E1C4DB /* Default-568h@2x.png */; };
 		F925D7361785D78900E1C4DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */; };
+		F98C521E1785D989002E0EC3 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C521D1785D989002E0EC3 /* FlickrFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,9 @@
 		F925D7301785D78900E1C4DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F925D7321785D78900E1C4DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F925D7351785D78900E1C4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		F98C521B1785D989002E0EC3 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		F98C521C1785D989002E0EC3 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		F98C521D1785D989002E0EC3 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */,
+				F98C521F1785D994002E0EC3 /* FlickrFetcher */,
 				F925D7231785D78900E1C4DB /* Supporting Files */,
 			);
 			path = SPoT;
@@ -100,6 +105,16 @@
 				F925D7321785D78900E1C4DB /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F98C521F1785D994002E0EC3 /* FlickrFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				F98C521B1785D989002E0EC3 /* FlickrAPIKey.h */,
+				F98C521C1785D989002E0EC3 /* FlickrFetcher.h */,
+				F98C521D1785D989002E0EC3 /* FlickrFetcher.m */,
+			);
+			name = FlickrFetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +185,7 @@
 			files = (
 				F925D7291785D78900E1C4DB /* main.m in Sources */,
 				F925D72D1785D78900E1C4DB /* AppDelegate.m in Sources */,
+				F98C521E1785D989002E0EC3 /* FlickrFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +308,7 @@
 				F925D73E1785D78900E1C4DB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
