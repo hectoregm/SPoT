@@ -11,6 +11,7 @@
 @interface ImageViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
+@property (nonatomic) BOOL maxContent;
 @end
 
 @implementation ImageViewController
@@ -18,7 +19,6 @@
 - (void)setImageURL:(NSURL *)imageURL
 {
     _imageURL = imageURL;
-    NSLog(@"URL: %@", imageURL);
     [self resetImage];
 }
 
@@ -32,14 +32,35 @@
         NSLog(@"Finished download of image data");  
         UIImage *image = [[UIImage alloc] initWithData:imageData];
         if (image) {
-            NSLog(@"In image reset");
             self.scrollView.zoomScale = 1.0;
             self.scrollView.contentSize = image.size;
             self.imageView.image = image;
+            self.maxContent = YES;
             self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
         }
     }
     
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    UIImage *image = self.imageView.image;
+    if (image && self.maxContent) {
+        CGFloat wScale = self.scrollView.bounds.size.width / image.size.width;
+        CGFloat hScale = self.scrollView.bounds.size.height / image.size.height;
+        if (wScale > hScale)
+            self.scrollView.zoomScale = wScale;
+        else
+            self.scrollView.zoomScale = hScale;
+    }
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    if (self.scrollView.zooming) {
+        self.maxContent = NO;
+    }
 }
 
 - (UIImageView *)imageView
@@ -60,7 +81,6 @@
     self.scrollView.minimumZoomScale = 0.2;
     self.scrollView.maximumZoomScale = 5.0;
     self.scrollView.delegate = self;
-    NSLog(@"In ImageVC viewDidLoad");
     [self resetImage];
 }
 

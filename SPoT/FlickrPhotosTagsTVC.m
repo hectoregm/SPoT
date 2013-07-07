@@ -30,18 +30,15 @@
 - (void)splitPhotosInTags
 {
     if ([[self.photos lastObject] isKindOfClass:[NSDictionary class]]) {
-        NSLog(@"In splitPhotosInTags");
         NSMutableDictionary *tags = [[NSMutableDictionary alloc] init];
         for (NSDictionary *photo in self.photos) {
             NSArray *photoTags = [photo[FLICKR_TAGS] componentsSeparatedByString:@" "];
-            NSLog(@"Tags: %@", photoTags);
             for (NSString *tag in photoTags) {
                 if ([tag isEqualToString:@"cs193pspot"]) continue;
                 if ([tag isEqualToString:@"portrait"]) continue;
                 if ([tag isEqualToString:@"landscape"]) continue;
                 
                 if (!tags[tag]) tags[tag] = [[NSMutableArray alloc] init];
-                NSLog(@"Adding photo to tag");
                 [tags[tag] addObject:photo];
             }
         }
