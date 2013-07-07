@@ -19,12 +19,6 @@
 {
     [super viewDidLoad];
     self.imageURL = [[NSURL alloc] initWithString:@"http://images.apple.com/v/iphone/gallery/a/images/photo_3.jpg"];
-//    NSArray *stanfordPhotos = [FlickrFetcher stanfordPhotos];
-//    NSString *description = stanfordPhotos[0][@"description"][@"_content"];
-//    NSArray *tags = [stanfordPhotos[0][@"tags"] componentsSeparatedByString:@" "];
-//    NSLog(@"%@", description);
-//    NSLog(@"%@", tags);
-//    NSLog(@"%@", stanfordPhotos);
 }
 
 @end

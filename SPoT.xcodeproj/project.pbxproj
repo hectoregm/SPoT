@@ -17,6 +17,7 @@
 		F925D7311785D78900E1C4DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D7301785D78900E1C4DB /* Default@2x.png */; };
 		F925D7331785D78900E1C4DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D7321785D78900E1C4DB /* Default-568h@2x.png */; };
 		F925D7361785D78900E1C4DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */; };
+		F93FBFEE1789EEAD00C24B23 /* FlickrRecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = F93FBFED1789EEAD00C24B23 /* FlickrRecentPhotos.m */; };
 		F98C521E1785D989002E0EC3 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C521D1785D989002E0EC3 /* FlickrFetcher.m */; };
 		F98C52221785DA2E002E0EC3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52211785DA2E002E0EC3 /* ImageViewController.m */; };
 		F98C52251785E0B6002E0EC3 /* HawaiiImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52241785E0B6002E0EC3 /* HawaiiImageViewController.m */; };
@@ -40,6 +41,8 @@
 		F925D7301785D78900E1C4DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F925D7321785D78900E1C4DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F925D7351785D78900E1C4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		F93FBFEC1789EEAD00C24B23 /* FlickrRecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickrRecentPhotos.h; path = Models/FlickrRecentPhotos.h; sourceTree = "<group>"; };
+		F93FBFED1789EEAD00C24B23 /* FlickrRecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickrRecentPhotos.m; path = Models/FlickrRecentPhotos.m; sourceTree = "<group>"; };
 		F98C521B1785D989002E0EC3 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		F98C521C1785D989002E0EC3 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		F98C521D1785D989002E0EC3 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		F925D7221785D78900E1C4DB /* SPoT */ = {
 			isa = PBXGroup;
 			children = (
+				F93FBFEF1789EEB100C24B23 /* Models */,
 				F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */,
 				F98C52261785ED77002E0EC3 /* FlickrPhotosTVC.h */,
 				F98C52271785ED77002E0EC3 /* FlickrPhotosTVC.m */,
@@ -130,6 +134,15 @@
 				F925D7321785D78900E1C4DB /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F93FBFEF1789EEB100C24B23 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F93FBFEC1789EEAD00C24B23 /* FlickrRecentPhotos.h */,
+				F93FBFED1789EEAD00C24B23 /* FlickrRecentPhotos.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		F98C521F1785D994002E0EC3 /* FlickrFetcher */ = {
@@ -216,6 +229,7 @@
 				F98C52281785ED77002E0EC3 /* FlickrPhotosTVC.m in Sources */,
 				F98C522B1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m in Sources */,
 				F98C522E1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m in Sources */,
+				F93FBFEE1789EEAD00C24B23 /* FlickrRecentPhotos.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

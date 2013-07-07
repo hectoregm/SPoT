@@ -8,6 +8,7 @@
 
 #import "FlickrPhotosTVC.h"
 #import "FlickrFetcher.h"
+#import "FlickrRecentPhotos.h"
 
 @interface FlickrPhotosTVC ()
 
@@ -31,6 +32,7 @@
                     NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
                     [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
                     [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
+                    [FlickrRecentPhotos addPhoto:self.photos[indexPath.row]];
                 }
             }
         }

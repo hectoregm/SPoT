@@ -7,6 +7,7 @@
 //
 
 #import "RecentFlickrPhotosTVC.h"
+#import "FlickrRecentPhotos.h"
 
 @interface RecentFlickrPhotosTVC ()
 
@@ -14,10 +15,10 @@
 
 @implementation RecentFlickrPhotosTVC
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    [super viewWillAppear:animated];
+    self.photos = [FlickrRecentPhotos photos];
 }
 
 @end
