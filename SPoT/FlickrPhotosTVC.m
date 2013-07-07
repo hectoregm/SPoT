@@ -29,14 +29,21 @@
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Show Image"]) {
                 if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
-                    NSURL *url = [FlickrFetcher urlForPhoto:self.photos[indexPath.row] format:FlickrPhotoFormatLarge];
+                    NSDictionary *photo = [self PhotoForRow:indexPath.row];
+                    NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
                     [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
-                    [segue.destinationViewController setTitle:[self titleForRow:indexPath.row]];
-                    [FlickrRecentPhotos addPhoto:self.photos[indexPath.row]];
+                    [segue.destinationViewController setTitle:[self titleForRow:photo]];
+                    [FlickrRecentPhotos addPhoto:photo];
                 }
             }
         }
     }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.sortList = YES;
 }
 
 #pragma mark - Table view data source
@@ -46,15 +53,28 @@
     return [self.photos count];
 }
 
-- (NSString *)titleForRow:(NSUInteger)row
+- (NSString *)titleForRow:(NSDictionary *)photo
 {
-    return [self.photos[row][FLICKR_PHOTO_TITLE] description];
+    return [photo[FLICKR_PHOTO_TITLE] description];
 }
 
-- (NSString *)subtitleForRow:(NSUInteger)row
+- (NSString *)subtitleForRow:(NSDictionary *)photo
 {
-    return [[self.photos[row] valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] description];
+    return [[photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] description];
 }
+
+- (NSDictionary *)PhotoForRow:(NSUInteger)row
+{
+    NSDictionary *photo;
+    if (self.sortList) {
+        NSSortDescriptor *titleDescriptor = [[NSSortDescriptor alloc] initWithKey:FLICKR_PHOTO_TITLE ascending:YES];
+        photo = [self.photos sortedArrayUsingDescriptors:@[titleDescriptor]][row];
+    } else {
+        photo = self.photos[row];
+    }
+    return photo;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -62,8 +82,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [self titleForRow:indexPath.row];
-    cell.detailTextLabel.text = [self subtitleForRow:indexPath.row];
+    NSDictionary *photo = [self PhotoForRow:indexPath.row];
+    cell.textLabel.text = [self titleForRow:photo];
+    cell.detailTextLabel.text = [self subtitleForRow:photo];
     return cell;
 }
 

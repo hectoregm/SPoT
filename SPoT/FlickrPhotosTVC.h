@@ -11,5 +11,6 @@
 @interface FlickrPhotosTVC : UITableViewController
 
 @property (nonatomic, strong) NSArray *photos; // of NSDictionary
+@property (nonatomic) BOOL sortList;
 
 @end
