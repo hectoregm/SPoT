@@ -22,6 +22,29 @@
     [self.tableView reloadData];
 }
 
+- (id)splitViewDetailWithBarButtonItem
+{
+    id detail = [self.splitViewController.viewControllers lastObject];
+    if (![detail respondsToSelector:@selector(setSplitViewBarButtonItem:)] ||
+        ![detail respondsToSelector:@selector(splitViewBarButtonItem)]) detail = nil;
+    return detail;
+}
+
+- (void)transferSplitViewBarButtonItemToViewController:(id)destinationViewController
+{
+    id splitViewDetail = [self splitViewDetailWithBarButtonItem];
+    if (splitViewDetail) {
+        UIBarButtonItem *splitViewBarButtomItem = [splitViewDetail performSelector:@selector(splitViewBarButtonItem)];
+        [splitViewDetail performSelector:@selector(setSplitViewBarButtonItem:)
+                                                      withObject:nil];
+        if (splitViewBarButtomItem && [destinationViewController respondsToSelector:@selector(setSplitViewBarButtonItem:)]) {
+            [destinationViewController performSelector:@selector(setSplitViewBarButtonItem:)
+                                            withObject:splitViewBarButtomItem];
+        }
+    }
+
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[UITableViewCell class]]) {
@@ -29,6 +52,7 @@
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Show Image"]) {
                 if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+                    [self transferSplitViewBarButtonItemToViewController:segue.destinationViewController];
                     NSDictionary *photo = [self PhotoForRow:indexPath.row];
                     NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
                     [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];

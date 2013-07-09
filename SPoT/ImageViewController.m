@@ -8,13 +8,22 @@
 
 #import "ImageViewController.h"
 
-@interface ImageViewController () <UIScrollViewDelegate>
+@interface ImageViewController () <UIScrollViewDelegate, UISplitViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
 @property (nonatomic) BOOL maxContent;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
+@property (nonatomic, strong) UIBarButtonItem *splitViewBarButtonItem;
 @end
 
 @implementation ImageViewController
+
+-(void)setTitle:(NSString *)title
+{
+    super.title = title;
+    self.titleBarButtonItem.title = title;
+}
 
 - (void)setImageURL:(NSURL *)imageURL
 {
@@ -56,6 +65,36 @@
     }
 }
 
+- (void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
+{
+    NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+    if (_splitViewBarButtonItem) {
+        [toolbarItems removeObject:_splitViewBarButtonItem];
+    }
+    if (splitViewBarButtonItem) {
+        [toolbarItems insertObject:splitViewBarButtonItem atIndex:0];
+    }
+    self.toolbar.items = toolbarItems;
+    _splitViewBarButtonItem = splitViewBarButtonItem;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willHideViewController:(UIViewController *)aViewController
+          withBarButtonItem:(UIBarButtonItem *)barButtonItem
+       forPopoverController:(UIPopoverController *)pc
+{
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:barButtonItem.target action:barButtonItem.action];
+    barButtonItem = barButton;
+    self.splitViewBarButtonItem = barButton;
+}
+
+- (void)splitViewController:(UISplitViewController *)svc
+     willShowViewController:(UIViewController *)aViewController
+  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    self.splitViewBarButtonItem = nil;
+}
+
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
     if (self.scrollView.zooming) {
@@ -81,6 +120,9 @@
     self.scrollView.minimumZoomScale = 0.2;
     self.scrollView.maximumZoomScale = 5.0;
     self.scrollView.delegate = self;
+    self.splitViewController.delegate = self;
+    self.titleBarButtonItem.title = self.title;
+    if (self.splitViewBarButtonItem) [self setSplitViewBarButtonItem:self.splitViewBarButtonItem];
     [self resetImage];
 }
 

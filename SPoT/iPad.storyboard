@@ -211,24 +211,36 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBF-oi-Znc"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUa-Ax-W7d">
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rl2-pn-37G"/>
+                                    <barButtonItem title="Item" style="plain" id="1bL-fL-aIz"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="DY0-se-uQO"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QBF-oi-Znc" firstAttribute="bottom" secondItem="aNJ-Cv-xor" secondAttribute="bottom" type="default" id="0jD-FL-7oB"/>
+                            <constraint firstItem="rUa-Ax-W7d" firstAttribute="trailing" secondItem="aNJ-Cv-xor" secondAttribute="trailing" type="default" id="592-9s-XQR"/>
+                            <constraint firstItem="rUa-Ax-W7d" firstAttribute="top" secondItem="aNJ-Cv-xor" secondAttribute="top" type="default" id="NZQ-qr-OIH"/>
+                            <constraint firstItem="QBF-oi-Znc" firstAttribute="top" secondItem="rUa-Ax-W7d" secondAttribute="bottom" type="default" id="Ybt-lX-yjb"/>
                             <constraint firstItem="QBF-oi-Znc" firstAttribute="trailing" secondItem="aNJ-Cv-xor" secondAttribute="trailing" type="default" id="hOe-xy-9nA"/>
-                            <constraint firstItem="QBF-oi-Znc" firstAttribute="top" secondItem="aNJ-Cv-xor" secondAttribute="top" type="default" id="lDn-7F-8Xp"/>
                             <constraint firstItem="QBF-oi-Znc" firstAttribute="leading" secondItem="aNJ-Cv-xor" secondAttribute="leading" type="default" id="pQd-ci-1Pg"/>
+                            <constraint firstItem="rUa-Ax-W7d" firstAttribute="leading" secondItem="aNJ-Cv-xor" secondAttribute="leading" type="default" id="sd8-Un-efu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BDL-OY-fRl"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="scrollView" destination="QBF-oi-Znc" id="ml2-Db-vv9"/>
+                        <outlet property="titleBarButtonItem" destination="1bL-fL-aIz" id="8aa-2F-Eao"/>
+                        <outlet property="toolbar" destination="rUa-Ax-W7d" id="tTh-qd-vSO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHG-9h-Qq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="263"/>
+            <point key="canvasLocation" x="1763" y="-53"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sRx-Nk-b5S">
@@ -262,6 +274,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="titleBarButtonItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
