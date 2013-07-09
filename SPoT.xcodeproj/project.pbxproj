@@ -16,7 +16,7 @@
 		F925D72F1785D78900E1C4DB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D72E1785D78900E1C4DB /* Default.png */; };
 		F925D7311785D78900E1C4DB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D7301785D78900E1C4DB /* Default@2x.png */; };
 		F925D7331785D78900E1C4DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F925D7321785D78900E1C4DB /* Default-568h@2x.png */; };
-		F925D7361785D78900E1C4DB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */; };
+		F925D7361785D78900E1C4DB /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F925D7341785D78900E1C4DB /* iPhone.storyboard */; };
 		F93FBFEE1789EEAD00C24B23 /* FlickrRecentPhotos.m in Sources */ = {isa = PBXBuildFile; fileRef = F93FBFED1789EEAD00C24B23 /* FlickrRecentPhotos.m */; };
 		F98C521E1785D989002E0EC3 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C521D1785D989002E0EC3 /* FlickrFetcher.m */; };
 		F98C52221785DA2E002E0EC3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52211785DA2E002E0EC3 /* ImageViewController.m */; };
@@ -24,6 +24,7 @@
 		F98C52281785ED77002E0EC3 /* FlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C52271785ED77002E0EC3 /* FlickrPhotosTVC.m */; };
 		F98C522B1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C522A1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m */; };
 		F98C522E1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F98C522D1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m */; };
+		F9E14FEF178C7759003DC6AE /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E14FEE178C7759003DC6AE /* iPad.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +41,7 @@
 		F925D72E1785D78900E1C4DB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		F925D7301785D78900E1C4DB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		F925D7321785D78900E1C4DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		F925D7351785D78900E1C4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		F925D7351785D78900E1C4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
 		F93FBFEC1789EEAD00C24B23 /* FlickrRecentPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlickrRecentPhotos.h; path = Models/FlickrRecentPhotos.h; sourceTree = "<group>"; };
 		F93FBFED1789EEAD00C24B23 /* FlickrRecentPhotos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FlickrRecentPhotos.m; path = Models/FlickrRecentPhotos.m; sourceTree = "<group>"; };
 		F98C521B1785D989002E0EC3 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		F98C522A1785EE43002E0EC3 /* FlickrPhotosTagsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotosTagsTVC.m; sourceTree = "<group>"; };
 		F98C522C1785EE96002E0EC3 /* RecentFlickrPhotosTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFlickrPhotosTVC.h; sourceTree = "<group>"; };
 		F98C522D1785EE96002E0EC3 /* RecentFlickrPhotosTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentFlickrPhotosTVC.m; sourceTree = "<group>"; };
+		F9E14FEE178C7759003DC6AE /* iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				F93FBFEF1789EEB100C24B23 /* Models */,
-				F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */,
+				F925D7341785D78900E1C4DB /* iPhone.storyboard */,
+				F9E14FEE178C7759003DC6AE /* iPad.storyboard */,
 				F98C52261785ED77002E0EC3 /* FlickrPhotosTVC.h */,
 				F98C52271785ED77002E0EC3 /* FlickrPhotosTVC.m */,
 				F98C52291785EE43002E0EC3 /* FlickrPhotosTagsTVC.h */,
@@ -210,7 +213,8 @@
 				F925D72F1785D78900E1C4DB /* Default.png in Resources */,
 				F925D7311785D78900E1C4DB /* Default@2x.png in Resources */,
 				F925D7331785D78900E1C4DB /* Default-568h@2x.png in Resources */,
-				F925D7361785D78900E1C4DB /* MainStoryboard.storyboard in Resources */,
+				F925D7361785D78900E1C4DB /* iPhone.storyboard in Resources */,
+				F9E14FEF178C7759003DC6AE /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,12 +248,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		F925D7341785D78900E1C4DB /* MainStoryboard.storyboard */ = {
+		F925D7341785D78900E1C4DB /* iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F925D7351785D78900E1C4DB /* en */,
 			);
-			name = MainStoryboard.storyboard;
+			name = iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -317,7 +321,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPoT/SPoT-Prefix.pch";
 				INFOPLIST_FILE = "SPoT/SPoT-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -328,7 +334,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPoT/SPoT-Prefix.pch";
 				INFOPLIST_FILE = "SPoT/SPoT-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
