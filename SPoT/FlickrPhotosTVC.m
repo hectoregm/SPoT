@@ -37,7 +37,10 @@
         UIBarButtonItem *splitViewBarButtomItem = [splitViewDetail performSelector:@selector(splitViewBarButtonItem)];
         [splitViewDetail performSelector:@selector(setSplitViewBarButtonItem:)
                                                       withObject:nil];
+        UIPopoverController *popover = [splitViewDetail performSelector:@selector(popover)];
         if (splitViewBarButtomItem && [destinationViewController respondsToSelector:@selector(setSplitViewBarButtonItem:)]) {
+            [[splitViewDetail performSelector:@selector(popover)] dismissPopoverAnimated:YES];
+            [destinationViewController performSelector:@selector(setPopover:) withObject:popover];
             [destinationViewController performSelector:@selector(setSplitViewBarButtonItem:)
                                             withObject:splitViewBarButtomItem];
         }
@@ -52,9 +55,14 @@
         if (indexPath) {
             if ([segue.identifier isEqualToString:@"Show Image"]) {
                 if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
+                    NSURL *url;
                     [self transferSplitViewBarButtonItemToViewController:segue.destinationViewController];
                     NSDictionary *photo = [self PhotoForRow:indexPath.row];
-                    NSURL *url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
+                    if (self.splitViewController) {
+                        url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatOriginal];
+                    } else {
+                        url = [FlickrFetcher urlForPhoto:photo format:FlickrPhotoFormatLarge];
+                    }
                     [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
                     [segue.destinationViewController setTitle:[self titleForRow:photo]];
                     [FlickrRecentPhotos addPhoto:photo];

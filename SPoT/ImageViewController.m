@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
 @property (nonatomic, strong) UIBarButtonItem *splitViewBarButtonItem;
+@property (retain, nonatomic) UIPopoverController *popover;
 @end
 
 @implementation ImageViewController
@@ -86,6 +87,7 @@
     UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:barButtonItem.target action:barButtonItem.action];
     barButtonItem = barButton;
     self.splitViewBarButtonItem = barButton;
+    self.popover = pc;
 }
 
 - (void)splitViewController:(UISplitViewController *)svc
@@ -93,6 +95,7 @@
   invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     self.splitViewBarButtonItem = nil;
+    self.popover = nil;
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
