@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
 @property (nonatomic, strong) UIBarButtonItem *splitViewBarButtonItem;
 @property (retain, nonatomic) UIPopoverController *popover;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @end
 
 @implementation ImageViewController
@@ -37,17 +38,27 @@
     if (self.scrollView) {
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
-        NSLog(@"Starting download of image data");
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
-        NSLog(@"Finished download of image data");  
-        UIImage *image = [[UIImage alloc] initWithData:imageData];
-        if (image) {
-            self.scrollView.zoomScale = 1.0;
-            self.scrollView.contentSize = image.size;
-            self.imageView.image = image;
-            self.maxContent = YES;
-            self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-        }
+        
+        [self.spinner startAnimating];
+        NSURL *imageURL = self.imageURL;
+        dispatch_queue_t flickrQ = dispatch_queue_create("image downloader", DISPATCH_QUEUE_SERIAL);
+        dispatch_async(flickrQ, ^{
+            NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
+            UIImage *image = [[UIImage alloc] initWithData:imageData];
+            if (self.imageURL == imageURL) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (image) {
+                        self.scrollView.zoomScale = 1.0;
+                        self.scrollView.contentSize = image.size;
+                        self.imageView.image = image;
+                        self.maxContent = YES;
+                        self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+                        [self maximizeContent];
+                    }
+                    [self.spinner stopAnimating];
+                });
+            }
+        });
     }
     
 }
@@ -55,6 +66,11 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
+    [self maximizeContent];
+}
+
+- (void)maximizeContent
+{
     UIImage *image = self.imageView.image;
     if (image && self.maxContent) {
         CGFloat wScale = self.scrollView.bounds.size.width / image.size.width;
@@ -127,6 +143,10 @@
     self.titleBarButtonItem.title = self.title;
     if (self.splitViewBarButtonItem) [self setSplitViewBarButtonItem:self.splitViewBarButtonItem];
     [self resetImage];
+    
+    NSFileManager *manager = [[NSFileManager alloc] init];
+    NSArray *paths = [manager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
+    NSLog(@"Document Path: %@", paths[0]);
 }
 
 @end

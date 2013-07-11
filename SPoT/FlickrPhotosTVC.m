@@ -75,6 +75,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"FlickPhotosTVC controller in viewDidLoad");
     self.sortList = YES;
 }
 

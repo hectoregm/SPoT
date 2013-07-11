@@ -11,6 +11,7 @@
 
 @interface FlickrPhotosTagsTVC ()
 @property (nonatomic, strong) NSMutableDictionary *photosByTag; // of NSArrays of NSDictionaries
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 @end
 
 @implementation FlickrPhotosTagsTVC
@@ -21,9 +22,10 @@
     [self splitPhotosInTags];
 }
 
-- (void)setTags:(NSMutableDictionary *)photosByTag
+- (void)setPhotosByTag:(NSMutableDictionary *)photosByTag
 {
     _photosByTag = photosByTag;
+    NSLog(@"TagsTVC: Getting new photos");
     [self.tableView reloadData];
 }
 
@@ -64,7 +66,25 @@
 
 - (void)viewDidLoad
 {
-    self.photos = [FlickrFetcher stanfordPhotos];
+    NSLog(@"FlickPhotosTags controller in viewDidLoad");
+    [self refreshPhotos];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshPhotos)
+                  forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)refreshPhotos
+{
+    [self.refreshControl beginRefreshing];
+    dispatch_queue_t flickrQ = dispatch_queue_create("image downlaod", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(flickrQ, ^{
+        NSArray *photos = [FlickrFetcher stanfordPhotos];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Got photos: %@", self);
+            self.photos = photos;
+            [self.refreshControl endRefreshing];
+        });
+    });
 }
 
 #pragma mark - Table view data source

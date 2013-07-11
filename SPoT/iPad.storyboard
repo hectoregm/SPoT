@@ -81,6 +81,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="SPoT" id="43Y-Fn-DDq"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="3nw-Dj-s3w">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJ0-St-5RB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,7 +213,17 @@
                         <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBF-oi-Znc"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBF-oi-Znc">
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qMT-uB-Me5"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qMT-uB-Me5" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="OEa-ve-wyo"/>
+                                    <constraint firstItem="qMT-uB-Me5" firstAttribute="centerX" secondItem="QBF-oi-Znc" secondAttribute="centerX" type="default" id="lH3-kN-PjH"/>
+                                    <constraint firstItem="qMT-uB-Me5" firstAttribute="centerY" secondItem="QBF-oi-Znc" secondAttribute="centerY" type="default" id="ljr-HO-fMA"/>
+                                    <constraint firstAttribute="trailing" secondItem="qMT-uB-Me5" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="uWI-4h-6HM"/>
+                                </constraints>
+                            </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUa-Ax-W7d">
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rl2-pn-37G"/>
@@ -221,10 +234,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="QBF-oi-Znc" firstAttribute="bottom" secondItem="aNJ-Cv-xor" secondAttribute="bottom" type="default" id="0jD-FL-7oB"/>
                             <constraint firstItem="rUa-Ax-W7d" firstAttribute="trailing" secondItem="aNJ-Cv-xor" secondAttribute="trailing" type="default" id="592-9s-XQR"/>
+                            <constraint firstItem="QBF-oi-Znc" firstAttribute="top" secondItem="aNJ-Cv-xor" secondAttribute="top" constant="23" id="K9E-zp-4Wt"/>
                             <constraint firstItem="rUa-Ax-W7d" firstAttribute="top" secondItem="aNJ-Cv-xor" secondAttribute="top" type="default" id="NZQ-qr-OIH"/>
-                            <constraint firstItem="QBF-oi-Znc" firstAttribute="top" secondItem="rUa-Ax-W7d" secondAttribute="bottom" type="default" id="Ybt-lX-yjb"/>
+                            <constraint firstAttribute="bottom" secondItem="QBF-oi-Znc" secondAttribute="bottom" constant="21" id="TW4-x2-6h0"/>
                             <constraint firstItem="QBF-oi-Znc" firstAttribute="trailing" secondItem="aNJ-Cv-xor" secondAttribute="trailing" type="default" id="hOe-xy-9nA"/>
                             <constraint firstItem="QBF-oi-Znc" firstAttribute="leading" secondItem="aNJ-Cv-xor" secondAttribute="leading" type="default" id="pQd-ci-1Pg"/>
                             <constraint firstItem="rUa-Ax-W7d" firstAttribute="leading" secondItem="aNJ-Cv-xor" secondAttribute="leading" type="default" id="sd8-Un-efu"/>
@@ -234,6 +247,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="scrollView" destination="QBF-oi-Znc" id="ml2-Db-vv9"/>
+                        <outlet property="spinner" destination="qMT-uB-Me5" id="aw9-Gg-3rF"/>
                         <outlet property="titleBarButtonItem" destination="1bL-fL-aIz" id="8aa-2F-Eao"/>
                         <outlet property="toolbar" destination="rUa-Ax-W7d" id="tTh-qd-vSO"/>
                     </connections>
@@ -274,6 +288,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="titleBarButtonItem" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
@@ -284,6 +299,9 @@
         <class className="RecentFlickrPhotosTVC" superclassName="FlickrPhotosTVC">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentFlickrPhotosTVC.h"/>
         </class>
+        <class className="UIRefreshControl" superclassName="UIControl">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
@@ -291,6 +309,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Uql-ZF-ict"/>
+        <segue reference="oSI-U1-Edz"/>
     </inferredMetricsTieBreakers>
 </document>
