@@ -7,6 +7,7 @@
 //
 
 #import "ImageViewController.h"
+#import "NetworkActivity.h"
 
 @interface ImageViewController () <UIScrollViewDelegate, UISplitViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -43,7 +44,11 @@
         NSURL *imageURL = self.imageURL;
         dispatch_queue_t flickrQ = dispatch_queue_create("image downloader", DISPATCH_QUEUE_SERIAL);
         dispatch_async(flickrQ, ^{
+            [NetworkActivity startActivity];
+            NSLog(@"ImageURL: %@", self.imageURL);
+            NSLog(@"Last Path: %@", [self.imageURL lastPathComponent]);
             NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
+            [NetworkActivity stopActivity];
             UIImage *image = [[UIImage alloc] initWithData:imageData];
             if (self.imageURL == imageURL) {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -143,10 +148,6 @@
     self.titleBarButtonItem.title = self.title;
     if (self.splitViewBarButtonItem) [self setSplitViewBarButtonItem:self.splitViewBarButtonItem];
     [self resetImage];
-    
-    NSFileManager *manager = [[NSFileManager alloc] init];
-    NSArray *paths = [manager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
-    NSLog(@"Document Path: %@", paths[0]);
 }
 
 @end

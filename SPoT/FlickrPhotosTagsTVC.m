@@ -8,6 +8,7 @@
 
 #import "FlickrPhotosTagsTVC.h"
 #import "FlickrFetcher.h"
+#import "NetworkActivity.h"
 
 @interface FlickrPhotosTagsTVC ()
 @property (nonatomic, strong) NSMutableDictionary *photosByTag; // of NSArrays of NSDictionaries
@@ -78,7 +79,9 @@
     [self.refreshControl beginRefreshing];
     dispatch_queue_t flickrQ = dispatch_queue_create("image downlaod", DISPATCH_QUEUE_SERIAL);
     dispatch_async(flickrQ, ^{
+        [NetworkActivity startActivity];
         NSArray *photos = [FlickrFetcher stanfordPhotos];
+        [NetworkActivity stopActivity];
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Got photos: %@", self);
             self.photos = photos;
