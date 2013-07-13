@@ -27,4 +27,10 @@
     self.photos = [FlickrRecentPhotos photos];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [super prepareForSegue:segue sender:sender];
+    self.photos = [FlickrRecentPhotos photos];
+}
+
 @end
