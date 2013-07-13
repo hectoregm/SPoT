@@ -8,6 +8,7 @@
 
 #import "ImageViewController.h"
 #import "NetworkActivity.h"
+#import "FlickrPhotoCache.h"
 
 @interface ImageViewController () <UIScrollViewDelegate, UISplitViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -44,11 +45,15 @@
         NSURL *imageURL = self.imageURL;
         dispatch_queue_t flickrQ = dispatch_queue_create("image downloader", DISPATCH_QUEUE_SERIAL);
         dispatch_async(flickrQ, ^{
-            [NetworkActivity startActivity];
-            NSLog(@"ImageURL: %@", self.imageURL);
-            NSLog(@"Last Path: %@", [self.imageURL lastPathComponent]);
-            NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
-            [NetworkActivity stopActivity];
+            NSData *imageData = [FlickrPhotoCache getPhoto:imageURL];
+            if (!imageData) {
+                [NetworkActivity startActivity];
+                imageData = [[NSData alloc] initWithContentsOfURL:self.imageURL];
+                [NetworkActivity stopActivity];
+                
+                [FlickrPhotoCache addPhoto:imageData key:imageURL];
+            }
+
             UIImage *image = [[UIImage alloc] initWithData:imageData];
             if (self.imageURL == imageURL) {
                 dispatch_async(dispatch_get_main_queue(), ^{

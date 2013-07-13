@@ -26,7 +26,6 @@
 - (void)setPhotosByTag:(NSMutableDictionary *)photosByTag
 {
     _photosByTag = photosByTag;
-    NSLog(@"TagsTVC: Getting new photos");
     [self.tableView reloadData];
 }
 
@@ -67,7 +66,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"FlickPhotosTags controller in viewDidLoad");
     [self refreshPhotos];
     [self.refreshControl addTarget:self
                             action:@selector(refreshPhotos)
@@ -83,7 +81,6 @@
         NSArray *photos = [FlickrFetcher stanfordPhotos];
         [NetworkActivity stopActivity];
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"Got photos: %@", self);
             self.photos = photos;
             [self.refreshControl endRefreshing];
         });

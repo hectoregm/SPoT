@@ -11,6 +11,6 @@
 
 @interface FlickrPhotoCache : NSObject
 + (void)addPhoto:(NSData *)photo key:(NSURL *)key;
-+ (UIImage *)getPhoto:(NSString *)key;
++ (NSData *)getPhoto:(NSURL *)key;
 + (BOOL)photoInCache:(NSURL *)key;
 @end
